@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from hs.views import pageNotFound
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('giga/', include('giga.urls')),
     path('blog/', include('blog.urls')),
-    path('', include('blog.urls')),
+    path('', include('hs.urls')),
 ]
+
+handler404 = pageNotFound
